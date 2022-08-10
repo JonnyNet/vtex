@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VtexChallenge.BusinessObjects.Entities
+namespace VtexChallenge.BusinessObjects.POCOEntities
 {
 	public class BaseEntity
 	{

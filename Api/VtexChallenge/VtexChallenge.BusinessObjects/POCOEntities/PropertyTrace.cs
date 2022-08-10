@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VtexChallenge.BusinessObjects.Entities
+namespace VtexChallenge.BusinessObjects.POCOEntities
 {
 	public class PropertyTrace : BaseEntity
 	{
@@ -9,7 +9,5 @@ namespace VtexChallenge.BusinessObjects.Entities
 		public string Name { get; set; }
 		public decimal Value { get; set; }
 		public decimal Tax { get; set; }
-
-		public Property Property { get; set; }
 	}
 }
