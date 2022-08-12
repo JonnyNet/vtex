@@ -23,10 +23,6 @@ namespace VtexChallenge.Repositories.Configurations
 			builder.Property(x => x.UpdatedAt)
 				.HasColumnType("datetime")
 				.HasDefaultValueSql("getdate()");
-
-			builder.HasOne<Property>()
-				.WithMany()
-				.HasForeignKey(x => x.PropertyId);
 		}
 	}
 }

@@ -6,6 +6,9 @@ namespace VtexChallenge.Repositories.DataContext
 {
 	internal class VtexChallengeContextFactory : DbContext
 	{
+		// add-migration InitialCreate -p VtexChallenge.Repositories -c VtexChallengeContextFactory -s VtexChallenge.Repositories
+		// Update-Database -p VtexChallenge.Repositories -s VtexChallenge.Repositories -context VtexChallengeContextFactory
+
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=VTexChallenge");

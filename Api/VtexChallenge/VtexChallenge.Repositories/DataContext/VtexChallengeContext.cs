@@ -1,19 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using VtexChallenge.BusinessObjects.Interfaces.Repository;
+using System.Data.Common;
+using VtexChallenge.BusinessObjects.Interfaces.Contexts;
 using VtexChallenge.BusinessObjects.POCOEntities;
 
 namespace VtexChallenge.Repositories.DataContext
 {
-	public class VtexChallengeContext : DbContext, IDbContex
+	public class VtexChallengeContext : DbContext, IDbContext
 	{
-		private const string _SCHEMA_NAME = "SchemaName";
 		public const string _PROPERTY_SEQUENCE = "PropertySequence";
-		private readonly IConfiguration _config;
 
-		public VtexChallengeContext(DbContextOptions<VtexChallengeContext> options, IConfiguration config) : base(options)
+		public VtexChallengeContext(DbContextOptions<VtexChallengeContext> options) : base(options)
 		{
-			_config = config;
+
 		}
 
 		public DbSet<Owner> Owners { get; set; }
@@ -24,14 +22,16 @@ namespace VtexChallenge.Repositories.DataContext
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			string schema = _config.GetValue<string>(_SCHEMA_NAME);
-			modelBuilder.HasDefaultSchema(schema);
-
-			modelBuilder.HasSequence<int>(_PROPERTY_SEQUENCE, schema: schema)
+			modelBuilder.HasSequence<int>(_PROPERTY_SEQUENCE)
 				.StartsAt(100000)
 				.IncrementsBy(1);
 
 			base.OnModelCreating(modelBuilder);
+		}
+
+		public DbConnection GetConnection()
+		{
+			return Database.GetDbConnection();
 		}
 	}
 }

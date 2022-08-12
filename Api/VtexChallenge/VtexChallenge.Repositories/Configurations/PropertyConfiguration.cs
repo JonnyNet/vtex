@@ -18,8 +18,7 @@ namespace VtexChallenge.Repositories.Configurations
 
 			builder.Property(x => x.Price)
 				.IsRequired()
-				.HasMaxLength(15)
-				.HasPrecision(2);
+				.HasMaxLength(15);
 
 			builder.Property(x => x.CodeInternal)
 				.HasMaxLength(6)
@@ -29,6 +28,10 @@ namespace VtexChallenge.Repositories.Configurations
 				.IsRequired()
 				.HasMaxLength(4);
 
+			builder.Property(x => x.Enabled)
+				.IsRequired()
+				.HasDefaultValue(true);
+
 			builder.Property(x => x.CreatedAt)
 				.HasColumnType("datetime")
 				.HasDefaultValueSql("getdate()");
@@ -37,16 +40,14 @@ namespace VtexChallenge.Repositories.Configurations
 				.HasColumnType("datetime")
 				.HasDefaultValueSql("getdate()");
 
-			builder.HasOne<Owner>()
-				.WithMany()
-				.HasForeignKey(x => x.OwnerId);
+			builder.HasOne(x => x.Owner)
+				.WithMany(x => x.Properties);
 
-			builder.HasOne<PropertyTrace>()
-				.WithMany()
-				.HasForeignKey(x => x.TraceId);
+			builder.HasOne(x => x.Trace)
+				.WithMany(x => x.Properties);
 
-
-
+			builder.HasMany(x => x.Images)
+				.WithOne(x => x.Property);
 		}
 	}
 }

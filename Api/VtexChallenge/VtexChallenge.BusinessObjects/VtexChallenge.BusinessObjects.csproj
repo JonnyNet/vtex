@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\" />
+    <ProjectReference Include="..\VtexChallenge.Entities\VtexChallenge.Entities.csproj" />
   </ItemGroup>
 
 </Project>

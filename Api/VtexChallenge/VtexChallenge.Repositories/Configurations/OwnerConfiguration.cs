@@ -21,6 +21,10 @@ namespace VtexChallenge.Repositories.Configurations
 			builder.Property(x => x.Birthday)
 				.HasColumnType("datetime");
 
+			builder.Property(x => x.Enabled)
+				.IsRequired()
+				.HasDefaultValue(true);
+
 			builder.Property(x => x.CreatedAt)
 				.HasColumnType("datetime")
 				.HasDefaultValueSql("getdate()");

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace VtexChallenge.BusinessObjects.POCOEntities
 {
@@ -9,5 +10,7 @@ namespace VtexChallenge.BusinessObjects.POCOEntities
 		public string Name { get; set; }
 		public decimal Value { get; set; }
 		public decimal Tax { get; set; }
+
+		public IEnumerable<Property> Properties { get; set; }
 	}
 }
