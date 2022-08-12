@@ -11,17 +11,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Interface Adapters", "3.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Frameworks And Drivers", "4. Frameworks And Drivers", "{67ACB1FE-6E5A-41E5-85DD-BC557A61625B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.Entities", "VtexChallenge.Entities\VtexChallenge.Entities.csproj", "{EE169304-6176-4F34-97F8-21EAB01BDA9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.Entities", "VtexChallenge.Entities\VtexChallenge.Entities.csproj", "{EE169304-6176-4F34-97F8-21EAB01BDA9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.BusinessObjects", "VtexChallenge.BusinessObjects\VtexChallenge.BusinessObjects.csproj", "{30FEFFD2-9F83-40A6-94ED-8F9E2584CAC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.BusinessObjects", "VtexChallenge.BusinessObjects\VtexChallenge.BusinessObjects.csproj", "{30FEFFD2-9F83-40A6-94ED-8F9E2584CAC8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{51A9926C-7854-44ED-8579-153CED384620}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.Repositories", "VtexChallenge.Repositories\VtexChallenge.Repositories.csproj", "{4783774C-0BAC-47F5-B2F9-1DE5BA601EA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.Repositories", "VtexChallenge.Repositories\VtexChallenge.Repositories.csproj", "{4783774C-0BAC-47F5-B2F9-1DE5BA601EA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.Common", "VtexChallenge.Common\VtexChallenge.Common.csproj", "{ABB8D4F2-0878-4D51-81AC-972FCD80C745}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.Common", "VtexChallenge.Common\VtexChallenge.Common.csproj", "{ABB8D4F2-0878-4D51-81AC-972FCD80C745}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.UseCases", "VtexChallenge.UseCases\VtexChallenge.UseCases.csproj", "{1EC83F62-1FD4-4D0C-949E-5517350DD34A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.UseCases", "VtexChallenge.UseCases\VtexChallenge.UseCases.csproj", "{1EC83F62-1FD4-4D0C-949E-5517350DD34A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presenters", "Presenters", "{4CD4E00B-08A7-44DF-BBC5-ACB287190FA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.WebExceptionPresenter", "VtexChallenge.WebExceptionPresenter\VtexChallenge.WebExceptionPresenter.csproj", "{3DC96DA4-AF72-4530-B866-DB6CF3E2105C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.Presenters", "VtexChallenge.Presenters\VtexChallenge.Presenters.csproj", "{9CA2855C-A5A3-4C17-A48A-0D4DC5E17249}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +55,14 @@ Global
 		{1EC83F62-1FD4-4D0C-949E-5517350DD34A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EC83F62-1FD4-4D0C-949E-5517350DD34A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EC83F62-1FD4-4D0C-949E-5517350DD34A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DC96DA4-AF72-4530-B866-DB6CF3E2105C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DC96DA4-AF72-4530-B866-DB6CF3E2105C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DC96DA4-AF72-4530-B866-DB6CF3E2105C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DC96DA4-AF72-4530-B866-DB6CF3E2105C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CA2855C-A5A3-4C17-A48A-0D4DC5E17249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CA2855C-A5A3-4C17-A48A-0D4DC5E17249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CA2855C-A5A3-4C17-A48A-0D4DC5E17249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA2855C-A5A3-4C17-A48A-0D4DC5E17249}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +74,9 @@ Global
 		{4783774C-0BAC-47F5-B2F9-1DE5BA601EA9} = {51A9926C-7854-44ED-8579-153CED384620}
 		{ABB8D4F2-0878-4D51-81AC-972FCD80C745} = {CB680652-C753-4682-88CB-EC64D771053B}
 		{1EC83F62-1FD4-4D0C-949E-5517350DD34A} = {B228E99F-764D-47D9-8E67-514FEB2ED1A2}
+		{4CD4E00B-08A7-44DF-BBC5-ACB287190FA3} = {2CB21DDB-04C3-4958-9903-B517EC939C36}
+		{3DC96DA4-AF72-4530-B866-DB6CF3E2105C} = {4CD4E00B-08A7-44DF-BBC5-ACB287190FA3}
+		{9CA2855C-A5A3-4C17-A48A-0D4DC5E17249} = {4CD4E00B-08A7-44DF-BBC5-ACB287190FA3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2F160E18-9A9B-4220-9090-99636AF1B5FE}
