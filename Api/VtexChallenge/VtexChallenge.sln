@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.IoC", "VtexCh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.WebApi", "VtexChallenge.WebApi\VtexChallenge.WebApi.csproj", "{C8E87832-809E-4F8B-9527-DCDCE865CDD9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Tests", "5. Tests", "{216E7466-971F-4206-9F2B-978D01F2329E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.Tests", "VtexChallenge.Tests\VtexChallenge.Tests.csproj", "{87DDA67D-23AC-4F58-BF2E-45ABF48B05E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +81,10 @@ Global
 		{C8E87832-809E-4F8B-9527-DCDCE865CDD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8E87832-809E-4F8B-9527-DCDCE865CDD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8E87832-809E-4F8B-9527-DCDCE865CDD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87DDA67D-23AC-4F58-BF2E-45ABF48B05E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87DDA67D-23AC-4F58-BF2E-45ABF48B05E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87DDA67D-23AC-4F58-BF2E-45ABF48B05E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87DDA67D-23AC-4F58-BF2E-45ABF48B05E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +100,7 @@ Global
 		{9CD1861A-EFDD-4A96-A555-A1B91AD33E4C} = {2CB21DDB-04C3-4958-9903-B517EC939C36}
 		{49B9D145-AA18-47E9-9D5D-189BEF925825} = {2CB21DDB-04C3-4958-9903-B517EC939C36}
 		{C8E87832-809E-4F8B-9527-DCDCE865CDD9} = {67ACB1FE-6E5A-41E5-85DD-BC557A61625B}
+		{87DDA67D-23AC-4F58-BF2E-45ABF48B05E7} = {216E7466-971F-4206-9F2B-978D01F2329E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2F160E18-9A9B-4220-9090-99636AF1B5FE}
