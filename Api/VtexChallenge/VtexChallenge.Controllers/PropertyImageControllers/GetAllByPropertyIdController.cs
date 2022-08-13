@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using VtexChallenge.BusinessObjects.Interfaces.Controllers.PropertyImageControllers;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.GetAll;
@@ -6,6 +7,8 @@ using VtexChallenge.BusinessObjects.Interfaces.Presenters.PropertyImagePresenter
 
 namespace VtexChallenge.Controllers.PropertyImageControllers
 {
+	[Route("api/property-images")]
+	[ApiController]
 	public class GetAllByPropertyIdController : IGetAllByPropertyIdController
 	{
 		private readonly IGetAllByPropertyIdInputPort _getAllByPropertyIdInputPort;
@@ -19,6 +22,8 @@ namespace VtexChallenge.Controllers.PropertyImageControllers
 			_getAllByPropertyIdPresenter = getAllByPropertyIdPresenter;
 		}
 
+		[HttpGet]
+		[Route("{propertyId}")]
 		public async Task<IEnumerable<string>> GetAll(int propertyId)
 		{
 			await _getAllByPropertyIdInputPort.Handle(propertyId);

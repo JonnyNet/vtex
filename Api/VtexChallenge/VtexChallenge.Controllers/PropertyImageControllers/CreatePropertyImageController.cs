@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using VtexChallenge.BusinessObjects.DTOs.PropertyImageDTOs;
 using VtexChallenge.BusinessObjects.Interfaces.Controllers.PropertyImageControllers;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.Create;
@@ -6,6 +7,8 @@ using VtexChallenge.BusinessObjects.Interfaces.Presenters.PropertyImagePresenter
 
 namespace VtexChallenge.Controllers.PropertyImageControllers
 {
+	[Route("api/property-images")]
+	[ApiController]
 	public class CreatePropertyImageController : ICreatePropertyImageController
 	{
 		private readonly ICreatePropertyImageInputPort _createPropertyImageInputPort;
@@ -19,6 +22,7 @@ namespace VtexChallenge.Controllers.PropertyImageControllers
 			_createPropertyImagePresenter = createPropertyImagePresenter;
 		}
 
+		[HttpPost]
 		public async Task<int> Create(CreatePropertyImageDTO createPropertyImageDTO)
 		{
 			await _createPropertyImageInputPort.Handle(createPropertyImageDTO);

@@ -27,6 +27,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.Presenters", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.Controllers", "VtexChallenge.Controllers\VtexChallenge.Controllers.csproj", "{9CD1861A-EFDD-4A96-A555-A1B91AD33E4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.IoC", "VtexChallenge.IoC\VtexChallenge.IoC.csproj", "{49B9D145-AA18-47E9-9D5D-189BEF925825}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.WebApi", "VtexChallenge.WebApi\VtexChallenge.WebApi.csproj", "{C8E87832-809E-4F8B-9527-DCDCE865CDD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +69,14 @@ Global
 		{9CD1861A-EFDD-4A96-A555-A1B91AD33E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CD1861A-EFDD-4A96-A555-A1B91AD33E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CD1861A-EFDD-4A96-A555-A1B91AD33E4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49B9D145-AA18-47E9-9D5D-189BEF925825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B9D145-AA18-47E9-9D5D-189BEF925825}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B9D145-AA18-47E9-9D5D-189BEF925825}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B9D145-AA18-47E9-9D5D-189BEF925825}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E87832-809E-4F8B-9527-DCDCE865CDD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E87832-809E-4F8B-9527-DCDCE865CDD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E87832-809E-4F8B-9527-DCDCE865CDD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E87832-809E-4F8B-9527-DCDCE865CDD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +90,8 @@ Global
 		{3DC96DA4-AF72-4530-B866-DB6CF3E2105C} = {2CB21DDB-04C3-4958-9903-B517EC939C36}
 		{9CA2855C-A5A3-4C17-A48A-0D4DC5E17249} = {2CB21DDB-04C3-4958-9903-B517EC939C36}
 		{9CD1861A-EFDD-4A96-A555-A1B91AD33E4C} = {2CB21DDB-04C3-4958-9903-B517EC939C36}
+		{49B9D145-AA18-47E9-9D5D-189BEF925825} = {2CB21DDB-04C3-4958-9903-B517EC939C36}
+		{C8E87832-809E-4F8B-9527-DCDCE865CDD9} = {67ACB1FE-6E5A-41E5-85DD-BC557A61625B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2F160E18-9A9B-4220-9090-99636AF1B5FE}

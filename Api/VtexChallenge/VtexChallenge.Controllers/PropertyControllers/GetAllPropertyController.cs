@@ -1,13 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using VtexChallenge.BusinessObjects.DTOs.PropertyDTOs;
 using VtexChallenge.BusinessObjects.Interfaces.Controllers.PropertyControllers;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyPorts.GetAll;
 using VtexChallenge.BusinessObjects.Interfaces.Presenters.PropertyPresenters;
 using VtexChallenge.Common.Collections;
-using VtexChallenge.Common.Models;
 
 namespace VtexChallenge.Controllers.PropertyControllers
 {
+	[Route("api/properties")]
+	[ApiController]
 	public class GetAllPropertyController : IGetAllPropertyController
 	{
 		private readonly IGetAllPropertyInputPort _getAllPropertyInputPort;
@@ -21,9 +23,15 @@ namespace VtexChallenge.Controllers.PropertyControllers
 			_getAllPropertyPresenter = getAllPropertyPresenter;
 		}
 
-		public async Task<DataCollection<PropertyDTO>> GetAll(RequestFilter resquesFilter)
+		[HttpGet]
+		[Route("page/{page}/pagesize/{pageSize}")]
+		public async Task<DataCollection<PropertyDTO>> GetAll(int page, int pageSize)
 		{
-			await _getAllPropertyInputPort.Handle(resquesFilter);
+			await _getAllPropertyInputPort.Handle(new()
+			{
+				Page = page,
+				PageSize = pageSize
+			});
 			return _getAllPropertyPresenter.Content;
 		}
 	}

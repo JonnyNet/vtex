@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using VtexChallenge.BusinessObjects.DTOs.PropertyDTOs;
 using VtexChallenge.BusinessObjects.Interfaces.Controllers.PropertyControllers;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyPorts.Create;
@@ -6,6 +7,8 @@ using VtexChallenge.BusinessObjects.Interfaces.Presenters.PropertyPresenters;
 
 namespace VtexChallenge.Controllers.PropertyControllers
 {
+	[Route("api/properties")]
+	[ApiController]
 	public class CreatePropertyController : ICreatePropertyController
 	{
 		private readonly ICreatePropertyInputPort _createPropertyInputPort;
@@ -19,6 +22,7 @@ namespace VtexChallenge.Controllers.PropertyControllers
 			_createPropertyPresenter = createPropertyPresenter;
 		}
 
+		[HttpPost]
 		public async Task<int> Create(CreatePropertyDTO createPropertyDTO)
 		{
 			await _createPropertyInputPort.Handle(createPropertyDTO);
