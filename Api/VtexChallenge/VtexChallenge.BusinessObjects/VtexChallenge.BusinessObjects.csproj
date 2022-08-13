@@ -12,10 +12,4 @@
     <ProjectReference Include="..\VtexChallenge.Entities\VtexChallenge.Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\Controllers\PropertyImageControllers\" />
-    <Folder Include="Interfaces\Controllers\PropertyControllers\" />
-    <Folder Include="Interfaces\Controllers\OwnerControllers\" />
-  </ItemGroup>
-
 </Project>

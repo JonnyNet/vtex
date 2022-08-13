@@ -3,7 +3,7 @@ using System;
 using System.Threading.Tasks;
 using VtexChallenge.BusinessObjects.DTOs.PropertyImageDTOs;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.Create;
-using VtexChallenge.BusinessObjects.Interfaces.Repositories;
+using VtexChallenge.BusinessObjects.Interfaces.Repositories.PropertiImageResposietories;
 using VtexChallenge.BusinessObjects.POCOEntities;
 using VtexChallenge.Entities.Exceptions;
 using VtexChallenge.Entities.Interfaces;

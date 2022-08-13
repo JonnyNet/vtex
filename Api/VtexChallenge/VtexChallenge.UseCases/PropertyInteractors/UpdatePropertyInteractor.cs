@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using VtexChallenge.BusinessObjects.DTOs.PropertyDTOs;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyPorts.Update;
-using VtexChallenge.BusinessObjects.Interfaces.Repositories;
+using VtexChallenge.BusinessObjects.Interfaces.Repositories.PropertyRepositories;
 using VtexChallenge.BusinessObjects.POCOEntities;
 using VtexChallenge.Entities.Interfaces;
 

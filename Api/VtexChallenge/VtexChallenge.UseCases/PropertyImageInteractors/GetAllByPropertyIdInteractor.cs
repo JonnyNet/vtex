@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.GetAll;
-using VtexChallenge.BusinessObjects.Interfaces.Repositories;
+using VtexChallenge.BusinessObjects.Interfaces.Repositories.PropertiImageResposietories;
 using VtexChallenge.Entities.Interfaces;
 
 namespace VtexChallenge.UseCases.PropertyImageInteractors
