@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VtexChallenge.Controllers;
 using VtexChallenge.Presenters;
@@ -19,6 +20,12 @@ namespace VtexChallenge.IoC
 			services.AddPresenters();
 			services.AddControllers();
 			return services;
+		}
+
+		public static IApplicationBuilder RunMigrations(this IApplicationBuilder app)
+		{
+			app.RunMigrationsRepositories();
+			return app;
 		}
 	}
 }

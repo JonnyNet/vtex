@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VtexChallenge.BusinessObjects.Interfaces.Contexts;
@@ -38,6 +39,16 @@ namespace VtexChallenge.Repositories
 			services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 			return services;
+		}
+
+		public static IApplicationBuilder RunMigrationsRepositories(this IApplicationBuilder app)
+		{
+			using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+			{
+				var context = serviceScope.ServiceProvider.GetRequiredService<VtexChallengeContext>();
+				context.Database.Migrate();
+			}
+			return app;
 		}
 	}
 }
