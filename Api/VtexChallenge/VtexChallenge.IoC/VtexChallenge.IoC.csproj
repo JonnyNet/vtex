@@ -9,6 +9,7 @@
     <ProjectReference Include="..\VtexChallenge.Presenters\VtexChallenge.Presenters.csproj" />
     <ProjectReference Include="..\VtexChallenge.Repositories\VtexChallenge.Repositories.csproj" />
     <ProjectReference Include="..\VtexChallenge.UseCases\VtexChallenge.UseCases.csproj" />
+    <ProjectReference Include="..\VtexChallenge.WebExceptionPresenter\VtexChallenge.WebExceptionPresenter.csproj" />
   </ItemGroup>
 
 </Project>

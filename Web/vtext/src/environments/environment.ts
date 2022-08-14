@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  webAPI: "https://localhost:44315/",
+  endPoints: {
+    owner: "api/owner",
+    property: "api/property",
+    propertyImage: "api/property-image"
+  }
 };
 
 /*
