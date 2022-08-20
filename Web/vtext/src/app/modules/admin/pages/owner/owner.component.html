@@ -1,0 +1,47 @@
+<div class="container-page">
+  <div class="header-page">
+    <h2>Owners</h2>
+    <button mat-raised-button color="primary">Create Owner</button>
+  </div>
+  <div class="main-page">
+    <table mat-table [dataSource]="dataSource" class="table" matSort matSortActive="created" matSortDisableClear
+      matSortDirection="desc">
+      <!-- Number Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let row">{{row.name}}</td>
+      </ng-container>
+
+      <!-- State Column -->
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let row">{{row.address}}</td>
+      </ng-container>
+
+      <!-- Created Column -->
+      <ng-container matColumnDef="birthday">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+          Birthday
+        </th>
+        <td mat-cell *matCellDef="let row">{{row.birthday | date}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row"></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="resultsLength" [pageSize]="pageSize" [pageSizeOptions]="[10, 25, 50, 100]"
+      aria-label="Select page search results">
+    </mat-paginator>
+  </div>
+</div>
