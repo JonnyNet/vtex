@@ -1,47 +1,64 @@
 <div class="container-page">
   <div class="header-page">
     <h2>Owners</h2>
-    <button mat-raised-button color="primary">Create Owner</button>
+    <button mat-mini-fab color="primary" (click)="openCreateOwnerDialog()">
+      <mat-icon>person_add</mat-icon>
+    </button>
   </div>
   <div class="main-page">
-    <table mat-table [dataSource]="dataSource" class="table" matSort matSortActive="created" matSortDisableClear
-      matSortDirection="desc">
-      <!-- Number Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>Id</th>
-        <td mat-cell *matCellDef="let row">{{row.id}}</td>
-      </ng-container>
+    <div class="container-table">
+      <table mat-table [dataSource]="dataSource" class="table" matSort matSortActive="created" matSortDisableClear
+        matSortDirection="desc">
 
-      <!-- Title Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let row">{{row.name}}</td>
-      </ng-container>
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let row">{{row.id}}</td>
+        </ng-container>
 
-      <!-- State Column -->
-      <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef>Address</th>
-        <td mat-cell *matCellDef="let row">{{row.address}}</td>
-      </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let row">{{row.name}}</td>
+        </ng-container>
 
-      <!-- Created Column -->
-      <ng-container matColumnDef="birthday">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-          Birthday
-        </th>
-        <td mat-cell *matCellDef="let row">{{row.birthday | date}}</td>
-      </ng-container>
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef>Address</th>
+          <td mat-cell *matCellDef="let row">{{row.address}}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let row"></td>
-      </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <mat-paginator [length]="resultsLength" [pageSize]="pageSize" [pageSizeOptions]="[10, 25, 50, 100]"
-      aria-label="Select page search results">
+        <ng-container matColumnDef="birthday">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+            Birthday
+          </th>
+          <td mat-cell *matCellDef="let row">{{row.birthday | date}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+            CreatedAt
+          </th>
+          <td mat-cell *matCellDef="let row">{{row.createdAt | date}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Properties</th>
+          <td mat-cell *matCellDef="let row">
+            <!-- <button mat-icon-button color="accent" aria-label="apartment icon" [routerLink]="'/admin/owners/1'">
+              <mat-icon>apartment</mat-icon>
+            </button> -->
+
+            <a mat-icon-button color="accent" routerLink="/admin/owners/{{ row.id }}">
+              <mat-icon>domain</mat-icon>
+            </a>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <mat-paginator (page)="onPageEvent($event)" [length]="resultsLength" [pageSize]="pageSize"
+      [pageSizeOptions]="[10, 25, 50, 100]" aria-label="Select page search results">
     </mat-paginator>
   </div>
 </div>

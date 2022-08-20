@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Upload Images</h1>
+<div mat-dialog-content>
+  <div matRipple [matRippleCentered]="false" [matRippleDisabled]="false" [matRippleUnbounded]="false" ngfDrop
+    multiple="1" selectable [(validDrag)]="baseDropValid" [(files)]="files" [accept]="accept" class="drop-zone"
+    [class.invalid-drag]="baseDropValid===false" [class.valid-drag]="baseDropValid" (filesChange)="LoadFile($event)"
+    [class.disabled-drag]="fileDropDisabled" [fileDropDisabled]="fileDropDisabled">
+    <div class="dragdrop">
+      <img src="/assets/images/Upload.png" alt="" *ngIf="!files.length">
+      <span class="message">Drop your files here or <span>browse for files.</span></span>
+    </div>
+  </div>
+  <div class="file-container" *ngIf="files.length">
+    <div class="file" *ngFor="let file of files; let i = index">
+      <span>{{ file.name }}</span>
+      <mat-icon matRipple color="warn" (click)="deleteFile(i)">delete_forever</mat-icon>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button [mat-dialog-close]="files" cdkFocusInitial>Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!files.length">Load</button>
+</div>

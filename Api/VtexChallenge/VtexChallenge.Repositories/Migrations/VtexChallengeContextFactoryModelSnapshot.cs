@@ -19,6 +19,9 @@ namespace VtexChallenge.Repositories.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.HasSequence<int>("PropertySequence")
+                .StartsAt(100000L);
+
             modelBuilder.Entity("VtexChallenge.BusinessObjects.POCOEntities.Owner", b =>
                 {
                     b.Property<int>("Id")
@@ -73,16 +76,37 @@ namespace VtexChallenge.Repositories.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<decimal>("Area")
+                        .ValueGeneratedOnAdd()
+                        .HasPrecision(8, 2)
+                        .HasColumnType("decimal(8,2)")
+                        .HasDefaultValue(0m);
+
+                    b.Property<int>("BathRooms")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(2)
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<int>("BedRooms")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
                     b.Property<string>("CodeInternal")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(6)
                         .HasColumnType("nvarchar(6)")
-                        .HasDefaultValue("NEXT VALUE FOR PropertySequence");
+                        .HasDefaultValueSql("NEXT VALUE FOR PropertySequence");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<bool>("Enabled")
                         .ValueGeneratedOnAdd()
@@ -96,6 +120,12 @@ namespace VtexChallenge.Repositories.Migrations
 
                     b.Property<int>("OwnerId")
                         .HasColumnType("int");
+
+                    b.Property<int>("ParkingLot")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(2)
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.Property<decimal>("Price")
                         .HasMaxLength(15)
@@ -144,7 +174,7 @@ namespace VtexChallenge.Repositories.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int?>("PropertyId")
+                    b.Property<int>("PropertyId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -173,6 +203,11 @@ namespace VtexChallenge.Repositories.Migrations
 
                     b.Property<DateTime>("DateSale")
                         .HasColumnType("datetime");
+
+                    b.Property<bool>("Enabled")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -218,7 +253,9 @@ namespace VtexChallenge.Repositories.Migrations
                 {
                     b.HasOne("VtexChallenge.BusinessObjects.POCOEntities.Property", "Property")
                         .WithMany("Images")
-                        .HasForeignKey("PropertyId");
+                        .HasForeignKey("PropertyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Property");
                 });

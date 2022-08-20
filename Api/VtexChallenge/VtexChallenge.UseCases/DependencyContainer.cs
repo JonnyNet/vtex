@@ -7,7 +7,7 @@ using VtexChallenge.BusinessObjects.Interfaces.Ports.OwnerPorts.Create;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.OwnerPorts.Find;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.OwnerPorts.GetAll;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.Create;
-using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.GetAll;
+using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.GetImage;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyPorts.Create;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyPorts.Find;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyPorts.GetAll;
@@ -55,7 +55,7 @@ namespace VtexChallenge.UseCases
 		private static void AddPropertyImageServices(IServiceCollection services)
 		{
 			services.AddTransient<ICreatePropertyImageInputPort, CreatePropertyImageInteractor>();
-			services.AddTransient<IGetAllByPropertyIdInputPort, GetAllByPropertyIdInteractor>();
+			services.AddTransient<IGetFirstPropertyImageInputPort, GetFirstPropertyImageInteractor>();
 		}
 
 		private static void AddValidators(IServiceCollection services)

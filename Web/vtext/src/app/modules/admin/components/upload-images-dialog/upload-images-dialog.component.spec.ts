@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { UploadImagesDialogComponent } from './upload-images-dialog.component';
+
+describe('UploadImagesDialogComponent', () => {
+  let component: UploadImagesDialogComponent;
+  let fixture: ComponentFixture<UploadImagesDialogComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ UploadImagesDialogComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(UploadImagesDialogComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

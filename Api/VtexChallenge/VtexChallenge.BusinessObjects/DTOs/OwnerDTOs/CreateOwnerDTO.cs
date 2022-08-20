@@ -16,7 +16,6 @@ namespace VtexChallenge.BusinessObjects.DTOs.OwnerDTOs
 			Name = ownerDTO.Name,
 			Address = ownerDTO.Address,
 			Birthday = ownerDTO.Birthday,
-			Photo = ownerDTO.Photo
 		};
 	}
 }

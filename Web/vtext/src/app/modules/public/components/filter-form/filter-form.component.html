@@ -1,0 +1,55 @@
+<form [formGroup]="form">
+  <h4>Spaces</h4>
+  <mat-form-field appearance="outline">
+    <mat-label>Bedrooms</mat-label>
+    <mat-select formControlName="bedrooms">
+      <mat-option value="">Select</mat-option>
+      <mat-option value="1">1</mat-option>
+      <mat-option value="2">2</mat-option>
+      <mat-option value="3">3</mat-option>
+      <mat-option value="4">4+</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Bathrooms</mat-label>
+    <mat-select formControlName="bathrooms">
+      <mat-option value="">Select</mat-option>
+      <mat-option value="1">1</mat-option>
+      <mat-option value="2">2</mat-option>
+      <mat-option value="3">3</mat-option>
+      <mat-option value="4">4+</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>ParkingLot</mat-label>
+    <mat-select formControlName="parkingLot">
+      <mat-option value="">Select</mat-option>
+      <mat-option value="1">1</mat-option>
+      <mat-option value="2">2</mat-option>
+      <mat-option value="3">3</mat-option>
+      <mat-option value="4">4+</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <h4>Area</h4>
+  <mat-form-field appearance="outline">
+    <mat-label>From m<sup>2</sup></mat-label>
+    <input matInput formControlName="areaFrom" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>To m<sup>2</sup></mat-label>
+    <input matInput formControlName="areaTo" autocomplete="off">
+  </mat-form-field>
+  <h4>Price</h4>
+  <mat-form-field appearance="outline">
+    <mat-label>From $</mat-label>
+    <input type="text" matInput formControlName="priceFrom" autocomplete="off" (input)="formatNumber($event)">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>To $</mat-label>
+    <input type="text" matInput formControlName="priceTo" autocomplete="off" (input)="formatNumber($event)">
+  </mat-form-field>
+  <div class="actions">
+    <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="onClean()">Clean Filter</button>
+    <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="onSubmit()">Apply Filter</button>
+  </div>
+</form>

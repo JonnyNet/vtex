@@ -1,0 +1,80 @@
+<mat-card class="card-property">
+  <mat-card-content>
+    <form class="form" [formGroup]="form">
+      <div class="column basic">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" formControlName="name" autocomplete="off" required>
+          <!-- <mat-error *ngIf="form.get('name').hasError('required')">
+                Nombre del perfil es requerido!
+              </mat-error> -->
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Address" formControlName="address" autocomplete="off" required>
+          <!-- <mat-error *ngIf="form.get('name').hasError('required')">
+                Nombre del perfil es requerido!
+              </mat-error> -->
+        </mat-form-field>
+        <mat-form-field appearance="outline" errorState="true">
+          <mat-label>Price</mat-label>
+          <input matInput placeholder="Price" formControlName="price" (input)="formatNumber($event)"
+            autocomplete="off" required>
+          <!-- <mat-error *ngIf="form.get('name').hasError('required')">
+                Nombre del perfil es requerido!
+              </mat-error> -->
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Year</mat-label>
+          <input matInput placeholder="Year" formControlName="year" autocomplete="off" required>
+          <!-- <mat-error *ngIf="form.get('name').hasError('required')">
+                Nombre del perfil es requerido!
+              </mat-error> -->
+        </mat-form-field>
+      </div>
+      <div class="column aditional">
+        <mat-form-field appearance="outline">
+          <mat-label>BedRooms</mat-label>
+          <input matInput placeholder="BedRooms" formControlName="bedRooms" autocomplete="off" required>
+          <!-- <mat-error *ngIf="form.get('name').hasError('required')">
+                Nombre del perfil es requerido!
+              </mat-error> -->
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>BathRooms</mat-label>
+          <input matInput placeholder="BathRooms" formControlName="bathRooms" autocomplete="off" required>
+          <!-- <mat-error *ngIf="form.get('name').hasError('required')">
+                Nombre del perfil es requerido!
+              </mat-error> -->
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Area</mat-label>
+          <input matInput placeholder="Area" formControlName="area" autocomplete="off" required>
+          <!-- <mat-error *ngIf="form.get('name').hasError('required')">
+                Nombre del perfil es requerido!
+              </mat-error> -->
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Parking Lot</mat-label>
+          <input matInput placeholder="Parking Lot" formControlName="parkingLot" autocomplete="off" required>
+          <!-- <mat-error *ngIf="form.get('name').hasError('required')">
+                Nombre del perfil es requerido!
+              </mat-error> -->
+        </mat-form-field>
+      </div>
+      <div class="column description">
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="15.5" cdkAutosizeMaxRows="5"
+            placeholder="Description" formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="end" *ngIf="!disabled">
+    <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!form.valid">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -6,17 +6,22 @@ namespace VtexChallenge.BusinessObjects.DTOs.PropertyDTOs
 	{
 		public int Id { get; set; }
 		public int? TraceId { get; set; }
-		public bool Enabled { get; set; }
+		public int OwnerId { get; set; }
 
 		public static explicit operator Property(UpdatePropertyDTO updatePropertyDTO) => new()
 		{
 			Id = updatePropertyDTO.Id,
+			OwnerId = updatePropertyDTO.OwnerId,
 			Name = updatePropertyDTO.Name,
 			Address = updatePropertyDTO.Address,
 			Price = updatePropertyDTO.Price,
 			Year = updatePropertyDTO.Year,
 			TraceId = updatePropertyDTO.TraceId,
-			Enabled = updatePropertyDTO.Enabled
+			BedRooms = updatePropertyDTO.BedRooms,
+			BathRooms = updatePropertyDTO.BathRooms,
+			Area = updatePropertyDTO.Area,
+			ParkingLot = updatePropertyDTO.ParkingLot,
+			Description = updatePropertyDTO.Description,
 		};
 	}
 }

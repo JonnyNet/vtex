@@ -1,9 +1,10 @@
-﻿using VtexChallenge.BusinessObjects.DTOs.PropertyImageDTOs;
-using VtexChallenge.Entities.Interfaces;
+﻿using System.Threading.Tasks;
+using VtexChallenge.BusinessObjects.DTOs.PropertyImageDTOs;
 
 namespace VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.Create
 {
-	public interface ICreatePropertyImageInputPort : IHandleable<CreatePropertyImageDTO>
+	public interface ICreatePropertyImageInputPort
 	{
+		Task Handle(string rootPath, CreatePropertyImageDTO createPropertyImageDTO);
 	}
 }

@@ -1,10 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using VtexChallenge.BusinessObjects.DTOs.PropertyImageDTOs;
 
 namespace VtexChallenge.BusinessObjects.Interfaces.Controllers.PropertyImageControllers
 {
 	public interface ICreatePropertyImageController
 	{
-		Task<int> Create(CreatePropertyImageDTO createPropertyImageDTO);
+		Task<IEnumerable<string>> Create(CreatePropertyImageDTO createPropertyImageDTO);
 	}
 }

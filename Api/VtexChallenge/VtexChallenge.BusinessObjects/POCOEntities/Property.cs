@@ -12,7 +12,11 @@ namespace VtexChallenge.BusinessObjects.POCOEntities
 		public decimal Price { get; set; }
 		public string CodeInternal { get; set; }
 		public int Year { get; set; }
-		public bool Enabled { get; set; }
+		public int BedRooms { get; set; }
+		public int BathRooms { get; set; }
+		public decimal Area { get; set; }
+		public int ParkingLot { get; set; }
+		public string Description { get; set; }
 
 		public Owner Owner { get; set; }
 		public IEnumerable<PropertyImage> Images { get; set; }

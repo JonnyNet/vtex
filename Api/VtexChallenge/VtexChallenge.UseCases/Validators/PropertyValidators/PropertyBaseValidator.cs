@@ -32,6 +32,26 @@ namespace VtexChallenge.UseCases.Validators.PropertyValidators
 			RuleFor(x => x.Year)
 				.Must(x => x != default)
 				.WithMessage(NOT_DEFAULT_VALUE_ERROR_MESSAGE);
+
+			RuleFor(x => x.BedRooms)
+				.Must(x => x != default)
+				.WithMessage(NOT_DEFAULT_VALUE_ERROR_MESSAGE)
+				.LessThan(100)
+				.WithMessage(ERROR_LESS_THAN);
+
+			RuleFor(x => x.BathRooms)
+				.Must(x => x != default)
+				.WithMessage(NOT_DEFAULT_VALUE_ERROR_MESSAGE)
+				.LessThan(100)
+				.WithMessage(ERROR_LESS_THAN);
+
+			RuleFor(x => x.Area)
+				.Must(x => x != default)
+				.WithMessage(NOT_DEFAULT_VALUE_ERROR_MESSAGE);
+
+			RuleFor(x => x.ParkingLot)
+				.LessThan(100)
+				.WithMessage(ERROR_LESS_THAN);
 		}
 	}
 }

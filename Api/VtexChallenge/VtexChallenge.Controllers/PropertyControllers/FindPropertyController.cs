@@ -7,7 +7,7 @@ using VtexChallenge.BusinessObjects.Interfaces.Presenters.PropertyPresenters;
 
 namespace VtexChallenge.Controllers.PropertyControllers
 {
-	[Route("api/properties")]
+	[Route("api/property")]
 	[ApiController]
 	public class FindPropertyController : IFindPropertyController
 	{

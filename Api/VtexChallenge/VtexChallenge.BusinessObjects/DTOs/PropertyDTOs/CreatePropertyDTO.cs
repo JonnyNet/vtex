@@ -14,7 +14,12 @@ namespace VtexChallenge.BusinessObjects.DTOs.PropertyDTOs
 			Name = createPropertyDTO.Name,
 			Address = createPropertyDTO.Address,
 			Price = createPropertyDTO.Price,
-			Year = createPropertyDTO.Year
+			Year = createPropertyDTO.Year,
+			BedRooms = createPropertyDTO.BedRooms,
+			BathRooms = createPropertyDTO.BathRooms,
+			Area = createPropertyDTO.Area,
+			ParkingLot = createPropertyDTO.ParkingLot,
+			Description = createPropertyDTO.Description,
 		};
 	}
 }

@@ -2,31 +2,29 @@
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using VtexChallenge.BusinessObjects.DTOs.PropertyImageDTOs;
 using VtexChallenge.Entities.Exceptions;
 
 namespace VtexChallenge.UseCases.Helpers
 {
 	public static class FileHelper
 	{
-		internal static async Task<string> SaveImage(string imageRepositoryPath, CreatePropertyImageDTO createPropertyImageDTO)
+		internal static async Task<string> SaveImage(string rootPath, string imageRepositoryPath, string imageTypePath, string data)
 		{
 			try
 			{
-				var ext = Path.GetExtension("");
-				var fileName = $"{Guid.NewGuid()}.{ext}";
 				var fullPath = Path.Combine(
+					rootPath,
 					imageRepositoryPath,
-					createPropertyImageDTO.PropertyId.ToString());
+					imageTypePath);
 
 				if (!Directory.Exists(fullPath))
 				{
 					Directory.CreateDirectory(fullPath);
 				}
 
+				var dataImage = TryParse(data);
+				string fileName = $"{Guid.NewGuid()}.{dataImage.Item1}";
 				var fullPathWithFileName = Path.Combine(fullPath, fileName);
-
-				var dataImage = TryParse("");
 
 				await File.WriteAllBytesAsync(fullPathWithFileName, dataImage.Item2);
 
@@ -39,9 +37,17 @@ namespace VtexChallenge.UseCases.Helpers
 			}
 		}
 
-		internal static void DeleteFile(string imageRepositoryPath, int propertyId, string fileName)
+		internal static void DeleteFile(string rootPath, string imageRepositoryPath, string imageTypePath, string fileName)
 		{
-			throw new NotImplementedException();
+			var fullPath = Path.Combine(
+					rootPath,
+					imageRepositoryPath,
+					imageTypePath,
+					fileName);
+			if (File.Exists(fullPath))
+			{
+				File.Delete(fullPath);
+			}
 		}
 
 		private static (string, byte[]) TryParse(string dataUri)
@@ -59,11 +65,12 @@ namespace VtexChallenge.UseCases.Helpers
 			string mimeType = match.Groups["type"].Value;
 			string base64Data = match.Groups["data"].Value;
 
-			byte[] rawData = Convert.FromBase64String(base64Data);
+			 byte[] rawData = Convert.FromBase64String(base64Data);
 			if (rawData.Length == 0)
 			{
 				throw new FormatException(Constans.STRING_FORMAT_EXCEPTION);
 			}
+
 			return (mimeType, rawData);
 		}
 	}

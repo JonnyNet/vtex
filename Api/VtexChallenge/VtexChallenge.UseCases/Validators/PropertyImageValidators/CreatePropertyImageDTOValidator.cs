@@ -16,9 +16,9 @@ namespace VtexChallenge.UseCases.Validators.PropertyImageValidators
 			RuleFor(x => x.Images)
 				.NotNull()
 				.WithMessage(NOT_NULL_ERROR_MESSAGE)
-				.Must(x => !x.Any())
+				.Must(x => x.Any())
 				.WithMessage(EMPTY_LIST_ERROR)
-				.Must(x => !x.All(x => string.IsNullOrEmpty(x)))
+				.Must(x => x.All(x => !string.IsNullOrEmpty(x)))
 				.WithMessage(ERROR_INVALID_ITEM_LIST);
 		}
 	}

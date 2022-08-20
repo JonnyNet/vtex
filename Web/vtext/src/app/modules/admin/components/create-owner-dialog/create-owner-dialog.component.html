@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Create Owner</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <div class="form-control">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name" autocomplete="off" required>
+        <!-- <mat-error *ngIf="form.get('name').hasError('required')">
+          Nombre del perfil es requerido!
+        </mat-error> -->
+      </mat-form-field>
+    </div>
+    <div class="form-control">
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Address" formControlName="address" autocomplete="off">
+        <!-- <mat-error *ngIf="form.get('name').hasError('required')">
+          Nombre del perfil es requerido!
+        </mat-error> -->
+      </mat-form-field>
+    </div>
+    <div class="form-control">
+      <mat-form-field appearance="outline">
+        <mat-label>Birthday</mat-label>
+        <input matInput readonly [matDatepicker]="picker" autocomplete="off" formControlName="birthday" (click)="picker.open()" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <!-- <mat-error *ngIf="formstep1.get('birthday').hasError('required')">
+          Seleccione vigencia!
+        </mat-error> -->
+      </mat-form-field>
+    </div>
+    <div class="form-control">
+      <div class="browse-file">
+        <span class="name" #namefile></span>
+        <button mat-raised-button type="button" color="accent" (click)="file.click()">
+          <mat-icon class="mr-4">folder_open</mat-icon>
+          Browse
+        </button>
+        <input hidden type="file" accept="image/*" #file (change)="getDataFileAsyn($event.target, namefile)">
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!form.valid">Save</button>
+</div>

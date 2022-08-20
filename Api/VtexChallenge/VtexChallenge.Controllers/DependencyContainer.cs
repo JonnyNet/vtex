@@ -28,7 +28,7 @@ namespace VtexChallenge.Controllers
 		private static void AddPropertyImageControllers(IServiceCollection services)
 		{
 			services.AddScoped<ICreatePropertyImageController, CreatePropertyImageController>();
-			services.AddScoped<IGetAllByPropertyIdController, GetAllByPropertyIdController>();
+			services.AddScoped<IGetFirstPropertyImageController, GetFirstPropertyImageController>();
 		}
 
 		private static void AddPropertyControllers(IServiceCollection services)

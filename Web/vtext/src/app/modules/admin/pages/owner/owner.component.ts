@@ -1,22 +1,24 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Owner } from 'src/app/core/models';
-import { loadOwnerList } from 'src/app/state/admin/admin.actions';
-import { getOwnerList } from 'src/app/state/admin/admin.selectors';
+import * as adminActions from 'src/app/state/admin/admin.actions';
+import * as adminSelectors from 'src/app/state/admin/admin.selectors';
 import { AppState } from 'src/app/state/app.state';
+import { CreateOwnerDialogComponent } from '../../components/create-owner-dialog/create-owner-dialog.component';
 
 @Component({
   selector: 'app-owner',
   templateUrl: './owner.component.html',
   styleUrls: ['./owner.component.scss']
 })
-export class OwnerComponent implements OnInit, AfterViewInit {
+export class OwnerComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  displayedColumns: string[] = ['id', 'name', 'address', 'birthday', 'action'];
+  displayedColumns: string[] = ['id', 'name', 'address', 'birthday', 'createdAt', 'action'];
   dataSource = new MatTableDataSource<Owner>();
   resultsLength = 0;
   pageSize = 10;
@@ -26,29 +28,45 @@ export class OwnerComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  subscription = new Array<Subscription>();
+  private subscription = new Array<Subscription>();
 
-  constructor(private readonly store: Store<AppState>) { }
+  constructor(
+    private readonly store: Store<AppState>,
+    private readonly dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.store.select(getOwnerList).subscribe(dataCollection => {
+    this.subscription.push(this.store.select(adminSelectors.getOwnerList).subscribe(dataCollection => {
       this.dataSource.data = dataCollection.data;
       this.resultsLength = dataCollection.total;
-    });
+    }));
     this.getOwnerListPerPage();
   }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
-    this.subscription.push(this.paginator.page.subscribe((page) => {
-      this.getOwnerListPerPage(page.pageIndex + 1, page.pageSize)
-    }));
+  }
+
+  onPageEvent(page: PageEvent) {
+    this.getOwnerListPerPage(page.pageIndex + 1, page.pageSize)
   }
 
   getOwnerListPerPage(page: number = 1, pageSize: number = this.pageSize) {
-    this.store.dispatch(loadOwnerList({
+    this.store.dispatch(adminActions.loadOwnerList({
       page,
       pageSize
     }));
+  }
+
+  openCreateOwnerDialog() {
+    const dialogRef = this.dialog.open(CreateOwnerDialogComponent, {
+      width: '30%',
+    })
+    this.subscription.push(dialogRef.afterClosed().subscribe((result: Owner) => {
+      this.store.dispatch(adminActions.createOwner(result))
+    }));
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.forEach(x => x.unsubscribe())
   }
 }

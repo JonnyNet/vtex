@@ -1,0 +1,16 @@
+<div class="container-page">
+  <div class="header-page">
+    <h2>Property</h2>
+    <button mat-mini-fab color="primary" *ngIf="showImages" (click)="openUploadImagesDialog()">
+      <mat-icon>add_photo_alternate</mat-icon>
+    </button>
+  </div>
+  <div class="main-page">
+    <div class="container-property">
+      <app-property-form [property]="property" (submit)="onSubmit($event)"></app-property-form>
+      <div class="property-images" *ngIf="showImages">
+        <img [src]="image" alt="photo" *ngFor="let image of images$ | async">
+      </div>
+    </div>
+  </div>
+</div>

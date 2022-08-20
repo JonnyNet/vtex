@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.Create;
 using VtexChallenge.BusinessObjects.Interfaces.Presenters.PropertyImagePresenters;
 
@@ -6,9 +7,9 @@ namespace VtexChallenge.Presenters.PropertyImagePresenters
 {
 	public class CreatePropertyImagePresenter : ICreatePropertyImageOutputPort, ICreatePropertyImagePresenter
 	{
-		public int Content { get; private set; }
+		public IEnumerable<string> Content { get; private set; }
 
-		public Task Handle(int obj)
+		public Task Handle(IEnumerable<string> obj)
 		{
 			Content = obj;
 			return Task.CompletedTask;

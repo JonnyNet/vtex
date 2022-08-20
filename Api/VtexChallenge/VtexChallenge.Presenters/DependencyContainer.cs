@@ -3,7 +3,7 @@ using VtexChallenge.BusinessObjects.Interfaces.Ports.OwnerPorts.Create;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.OwnerPorts.Find;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.OwnerPorts.GetAll;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.Create;
-using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.GetAll;
+using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyImagePorts.GetImage;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyPorts.Create;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyPorts.Find;
 using VtexChallenge.BusinessObjects.Interfaces.Ports.PropertyPorts.GetAll;
@@ -46,13 +46,13 @@ namespace VtexChallenge.Presenters
 		private static void AddPropertyImagePresenters(IServiceCollection services)
 		{
 			services.AddScoped<CreatePropertyImagePresenter>();
-			services.AddScoped<GetAllByPropertyIdPresenter>();
+			services.AddScoped<GetFirstPropertyImagePresenter>();
 
 			services.AddScoped<ICreatePropertyImageOutputPort>(x => x.GetService<CreatePropertyImagePresenter>());
 			services.AddScoped<ICreatePropertyImagePresenter>(x => x.GetService<CreatePropertyImagePresenter>());
 
-			services.AddScoped<IGetAllByPropertyIdOutputPort>(x => x.GetService<GetAllByPropertyIdPresenter>());
-			services.AddScoped<IGetAllByPropertyIdPresenter>(x => x.GetService<GetAllByPropertyIdPresenter>());
+			services.AddScoped<IGetFirstPropertyImageOutputPort>(x => x.GetService<GetFirstPropertyImagePresenter>());
+			services.AddScoped<IGetFirstPropertyImagePresenter>(x => x.GetService<GetFirstPropertyImagePresenter>());
 		}
 
 		private static void AddPropertyPresenters(IServiceCollection services)

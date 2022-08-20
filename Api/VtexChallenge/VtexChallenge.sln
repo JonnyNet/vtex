@@ -27,13 +27,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.Presenters", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.Controllers", "VtexChallenge.Controllers\VtexChallenge.Controllers.csproj", "{9CD1861A-EFDD-4A96-A555-A1B91AD33E4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.IoC", "VtexChallenge.IoC\VtexChallenge.IoC.csproj", "{49B9D145-AA18-47E9-9D5D-189BEF925825}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.IoC", "VtexChallenge.IoC\VtexChallenge.IoC.csproj", "{49B9D145-AA18-47E9-9D5D-189BEF925825}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.WebApi", "VtexChallenge.WebApi\VtexChallenge.WebApi.csproj", "{C8E87832-809E-4F8B-9527-DCDCE865CDD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.WebApi", "VtexChallenge.WebApi\VtexChallenge.WebApi.csproj", "{C8E87832-809E-4F8B-9527-DCDCE865CDD9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Tests", "5. Tests", "{216E7466-971F-4206-9F2B-978D01F2329E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtexChallenge.Tests", "VtexChallenge.Tests\VtexChallenge.Tests.csproj", "{87DDA67D-23AC-4F58-BF2E-45ABF48B05E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VtexChallenge.Tests", "VtexChallenge.Tests\VtexChallenge.Tests.csproj", "{87DDA67D-23AC-4F58-BF2E-45ABF48B05E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
