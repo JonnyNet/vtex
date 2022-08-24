@@ -1,0 +1,32 @@
+<div class="container-page">
+  <div class="header-page">
+    <div class="filter">
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Search..." autocomplete="off" [(ngModel)]="search" (keyup.enter)="onEnter()">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onEnter()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="main-page">
+    <div class="container-cards">
+      <mat-card class="card-left">
+        <mat-card-content>
+          <app-filter-form (filter)="onFilter($event)"></app-filter-form>
+        </mat-card-content>
+      </mat-card>
+      <div class="card-properties">
+        <div class="paginator">
+          <mat-paginator [length]="length$ | async" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+            (page)="onPageEvent($event)" aria-label="Select page">
+          </mat-paginator>
+        </div>
+        <div class="property-list">
+          <app-property-card *ngFor="let prop of properties$ | async" [property]="prop"
+            routerLink="/app/property-detail/{{ prop.id }}"></app-property-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

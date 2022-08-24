@@ -16,13 +16,21 @@ namespace VtexChallenge.Repositories.Repositories.PropertiImageResposietories
 			_dbContex = dbContex;
 		}
 
-		public async Task<IEnumerable<string>> GetImagesByPropertyId(int propertyId)
+		public async Task<IEnumerable<string>> GetAllImageByPropertyId(int propertyId)
 		{
-			var list = await _dbContex.PropertyImages
+			var listImage = await _dbContex.PropertyImages
+				.Where(x => x.PropertyId == propertyId)
+				.Select(x => x.File)
+				.ToListAsync();
+			return listImage;
+		}
+
+		public Task<string> GetFirstImageByPropertyId(int propertyId)
+		{
+			return _dbContex.PropertyImages
 					.Where(x => x.PropertyId == propertyId)
 					.Select(x => x.File)
-					.ToListAsync();
-			return list;
+					.FirstOrDefaultAsync();
 		}
 	}
 }

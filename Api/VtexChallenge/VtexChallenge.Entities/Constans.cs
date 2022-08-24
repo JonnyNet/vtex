@@ -14,6 +14,7 @@
 		public const string INCLUSICE_ERROR_MESSAGE = "The {PropertyName} must have a range from {From} to {To}.";
 		public const string EMPTY_LIST_ERROR = "The {PropertyName} list must have at least one element";
 		public const string ERROR_INVALID_ITEM_LIST = "The {PropertyName} list has an invalid item";
+		public const string ERROR_LESS_THAN = "the value of the {PropertyName} property must be less than {ComparisonValue}.";
 		public const string INPUT_DATA_ERROR = "Input data error, please check!";
 	}
 }

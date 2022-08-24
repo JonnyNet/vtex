@@ -4,6 +4,7 @@
 html,
 body {
   height: 100%;
+  background-color: #f8f8f8;
 }
 
 * {
@@ -42,6 +43,73 @@ body {
       max-height: 48px;
     }
 
-    .main-page {}
+    .main-page {
+
+      .row {
+        display: flex;
+        flex-flow: row wrap;
+
+        .column {
+          padding: 0px 16px;
+          flex: 1 1 25%;
+        }
+      }
+
+      .mat-card {
+        margin-top: 8px;
+      }
+
+      .container-cards {
+        display: flex;
+        flex-direction: row;
+
+        .card-left {
+          width: 17%;
+          min-width: 17%;
+          margin-right: 16px;
+        }
+
+        .card-properties {
+          flex-grow: 1;
+
+          .property-list {
+            display: flex;
+            flex-flow: row wrap;
+          }
+        }
+
+        .property-images {
+          margin: 16px 0px;
+          width: 100%;
+          display: flex;
+          overflow-x: auto;
+
+          img {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            margin-right: 5px;
+          }
+
+        }
+      }
+
+      .container-property {
+        .property-images {
+          margin: 16px 0px;
+          width: 100%;
+          display: flex;
+          overflow-x: auto;
+
+          img {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            margin-right: 5px;
+          }
+
+        }
+      }
+    }
   }
 }

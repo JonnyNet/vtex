@@ -41,7 +41,8 @@ namespace VtexChallenge.WebApi
 				{
 					{ typeof(GeneralException), new GeneralExceptionHandler() },
 					{ typeof(ValidationException), new ValidationExceptionHandler() },
-					{ typeof(RecordNotFoudException), new RecordNotFoudExceptionHandler() }
+					{ typeof(RecordNotFoudException), new RecordNotFoudExceptionHandler() },
+					{ typeof(ArgumentException), new ArgumentExceptionHandler() }
 				})));
 
 			services.AddCors(options =>
@@ -80,6 +81,8 @@ namespace VtexChallenge.WebApi
 			app.UseRouting();
 
 			app.UseAuthorization();
+
+			app.UseStaticFiles();
 
 			app.UseEndpoints(endpoints =>
 			{

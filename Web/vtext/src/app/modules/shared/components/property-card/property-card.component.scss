@@ -1,0 +1,84 @@
+:host {
+  cursor: pointer;
+  max-width: 33.33%;
+  flex: 0 0 33.33%;
+  box-sizing: border-box;
+  padding: 8px;
+  flex-grow: 1;
+  // flex-basis: 0;
+
+  .property {
+    height: 420px;
+    max-height: 420px;
+    border-radius: 24px;
+    background-color: white;
+
+    &:hover {
+      border-bottom-right-radius: 24px;
+      border-bottom-left-radius: 24px;
+      box-shadow: rgb(108 117 125 / 28%) 0px 10px 25px;
+      transition: all 0.3s ease 0.1s;
+    }
+
+    .image {
+      height: 300px;
+      max-height: 300px;
+      overflow: hidden;
+
+      .property-image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 24px 24px 0px 0px;
+      }
+    }
+
+
+
+    .property-info {
+      padding: 16px;
+      font-size: 16px;
+      border-top: solid 1px #3f51b5;
+      line-height: 18px;
+      font-weight: 500;
+      display: flex;
+
+      .basic-info {
+        flex: 1 1 100%;
+
+        .property-name {
+          font-size: 1.5em;
+          color: black;
+          margin: 16px 0px;
+        }
+
+        .property-price {
+          color: #3f51b5;
+          margin-bottom: 8px;
+        }
+
+      }
+
+      .aditional-info {
+        font-size: 14px;
+        flex: 1 1 17%;
+
+        .info {
+          display: flex;
+          align-items: center;
+
+          .material-icons {
+            font-size: 20px;
+            height: 20px;
+            width: 24px;
+            color: #3f51b5;
+          }
+
+          span {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}

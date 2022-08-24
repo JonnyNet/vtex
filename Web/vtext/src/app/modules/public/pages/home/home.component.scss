@@ -1,0 +1,33 @@
+.container-page {
+  .header-page {
+    display: flex;
+    justify-content: center;
+
+    .filter {
+      display: flex;
+      width: 50%;
+
+      .mat-form-field {
+        margin-right: 5px;
+      }
+
+      ::ng-deep .mat-form-field-wrapper {
+        margin: 0px;
+        padding-bottom: 0px;
+        background-color: white;
+      }
+    }
+  }
+
+  .container-cards {
+
+    .card-left {
+      max-height: 740px;
+      background-color: white;
+    }
+
+    .card-properties {
+      margin-top: 8px;
+    }
+  }
+}

@@ -13,6 +13,16 @@ namespace VtexChallenge.UseCases.PropertyInteractors
 		private readonly IPropertyCommandsRepository _propertyCommandsRepository;
 		private readonly IInputValidator<UpdatePropertyDTO> _inputValidator;
 
+		public UpdatePropertyInteractor(
+			IUpdatePropertyOutputPort updatePropertyOutputPort,
+			IPropertyCommandsRepository propertyCommandsRepository,
+			IInputValidator<UpdatePropertyDTO> inputValidator)
+		{
+			_updatePropertyOutputPort = updatePropertyOutputPort;
+			_propertyCommandsRepository = propertyCommandsRepository;
+			_inputValidator = inputValidator;
+		}
+
 		public async Task Handle(UpdatePropertyDTO updatePropertyDTO)
 		{
 			await _inputValidator.ValidateAsync(updatePropertyDTO);

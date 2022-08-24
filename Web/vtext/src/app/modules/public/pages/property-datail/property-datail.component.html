@@ -1,0 +1,13 @@
+<div class="container-page" *ngIf="property$ | async as property">
+  <div class="header-page">
+    <h2>Property</h2>
+  </div>
+  <div class="main-page">
+    <div class="container-property">
+      <app-property-form [disabled]="true" [property]="property"></app-property-form>
+      <div class="property-images">
+        <img [src]="image" alt="photo" *ngFor="let image of images$ | async">
+      </div>
+    </div>
+  </div>
+</div>

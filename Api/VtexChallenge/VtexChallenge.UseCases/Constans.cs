@@ -5,6 +5,10 @@ namespace VtexChallenge.UseCases
 	public static class Constans
 	{
 		public const string IMAGE_REPOSITORY_PATH = "ImageRepositoryPath";
+		public const string AVATAR_FOLDER = "Avatars";
+		public const string PROPERTIES_FOLDER = "Properties";
+		public const string SEPARATOR = ",";
+
 		public const string STRING_FORMAT_EXCEPTION = "Input is not a valid Base-64 string.";
 		public const string INVALID_PATH_ERROR = "{0}: invalid path to save image.";
 
@@ -17,5 +21,7 @@ namespace VtexChallenge.UseCases
 
 		public const int MIN_VALUE_PAGE_SIZE = 1;
 		public const int MAX_VALUE_PAGE_SIZE = 50;
+
+
 	}
 }

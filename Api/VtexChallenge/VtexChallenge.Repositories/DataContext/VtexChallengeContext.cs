@@ -1,5 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Data.Common;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using VtexChallenge.BusinessObjects.Interfaces.Contexts;
 using VtexChallenge.BusinessObjects.POCOEntities;
 
@@ -7,8 +11,6 @@ namespace VtexChallenge.Repositories.DataContext
 {
 	public class VtexChallengeContext : DbContext, IDbContext
 	{
-		public const string _PROPERTY_SEQUENCE = "PropertySequence";
-
 		public VtexChallengeContext(DbContextOptions<VtexChallengeContext> options) : base(options)
 		{
 
@@ -19,14 +21,31 @@ namespace VtexChallenge.Repositories.DataContext
 		public DbSet<PropertyImage> PropertyImages { get; set; }
 		public DbSet<PropertyTrace> PropertyTraces { get; set; }
 
-
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
 		{
-			modelBuilder.HasSequence<int>(_PROPERTY_SEQUENCE)
-				.StartsAt(100000)
-				.IncrementsBy(1);
+			var entriesAdded = ChangeTracker
+				.Entries()
+				.Where(x => x.State == EntityState.Added);
 
-			base.OnModelCreating(modelBuilder);
+			foreach (var item in entriesAdded)
+			{
+				var baseEntity = ((BaseEntity)item.Entity);
+				baseEntity.CreatedAt = DateTime.Now;
+				baseEntity.UpdatedAt = DateTime.Now;
+				baseEntity.Enabled = true;
+			}
+
+			var entriesModified = ChangeTracker
+				.Entries()
+				.Where(x => x.State == EntityState.Modified);
+
+			foreach (var item in entriesModified)
+			{
+				((BaseEntity)item.Entity).UpdatedAt = DateTime.Now;
+				item.Property("CreatedAt").IsModified = false;
+			}
+
+			return base.SaveChangesAsync(cancellationToken);
 		}
 
 		public DbConnection GetConnection()

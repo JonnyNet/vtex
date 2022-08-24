@@ -25,7 +25,7 @@ import { ROOT_EFFECTS } from './state/app.effects'
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot(ROOT_EFFECTS),
     StoreRouterConnectingModule.forRoot(),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({ maxAge: 4 }),
   ],
   providers: [],
   bootstrap: [AppComponent]

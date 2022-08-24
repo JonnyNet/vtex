@@ -1,4 +1,7 @@
-﻿using VtexChallenge.BusinessObjects.POCOEntities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using VtexChallenge.BusinessObjects.POCOEntities;
 
 namespace VtexChallenge.BusinessObjects.DTOs.PropertyDTOs
 {
@@ -6,6 +9,9 @@ namespace VtexChallenge.BusinessObjects.DTOs.PropertyDTOs
 	{
 		public int OwnerId { get; set; }
 		public string CodeInternal { get; set; }
+		public DateTime UpdatedAt { get; set; }
+		public IEnumerable<string> Images { get; set; }
+		public bool Enabled { get; set; }
 
 		public static explicit operator PropertyDTO(Property property) => new()
 		{
@@ -17,7 +23,14 @@ namespace VtexChallenge.BusinessObjects.DTOs.PropertyDTOs
 			OwnerId = property.OwnerId,
 			Enabled = property.Enabled,
 			TraceId = property.TraceId,
-			Year = property.Year
+			Year = property.Year,
+			BedRooms = property.BedRooms,
+			BathRooms = property.BathRooms,
+			Area = property.Area,
+			ParkingLot = property.ParkingLot,
+			UpdatedAt = property.UpdatedAt,
+			Description = property.Description,
+			Images = Enumerable.Empty<string>(),
 		};
 	}
 }

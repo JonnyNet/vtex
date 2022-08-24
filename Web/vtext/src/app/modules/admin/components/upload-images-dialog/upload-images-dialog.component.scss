@@ -1,0 +1,66 @@
+.drop-zone {
+  border: dashed 2px #3f51b5;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.invalid-drag {
+  border: dashed 3px red;
+}
+
+.valid-drag {
+  border: dashed 3px green;
+}
+
+.disabled-drag {
+  pointer-events: none;
+}
+
+.dragdrop {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    padding: 32px;
+    width: 100%;
+  }
+
+  .message {
+    font-size: 15px;
+    font-weight: bold;
+
+    span {
+      color: #3f51b5;
+      font-weight: bold;
+    }
+  }
+}
+
+.file-container {
+  font-size: 16px;
+  margin: 16px 0px;
+
+  .file {
+    width: 100%;
+    display: flex;
+    place-content: center space-between;
+    align-items: center;
+  }
+
+  span {
+    padding: 4px 0px;
+    text-overflow: ellipsis;
+    width: calc(100% - 28px);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  mat-icon {
+    cursor: pointer;
+  }
+}

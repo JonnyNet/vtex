@@ -14,7 +14,17 @@ namespace VtexChallenge.UseCases.PropertyInteractors
 		private readonly IPropertyQuerysRepository _propertyQuerysRepository;
 		private readonly IInputValidator<RequestFilter> _inputValidator;
 
-		public async Task Handle(RequestFilter requestFilter)
+		public GetAllPropertyInteractor(
+			IGetAllPropertyOutputPort getAllPropertyOutputPort,
+			IPropertyQuerysRepository propertyQuerysRepository,
+			IInputValidator<RequestFilter> inputValidator)
+		{
+			_getAllPropertyOutputPort = getAllPropertyOutputPort;
+			_propertyQuerysRepository = propertyQuerysRepository;
+			_inputValidator = inputValidator;
+		}
+
+		public async Task Handle(PropertyFilter requestFilter)
 		{
 			await _inputValidator.ValidateAsync(requestFilter);
 

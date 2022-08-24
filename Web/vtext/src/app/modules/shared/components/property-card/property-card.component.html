@@ -1,0 +1,33 @@
+<div class="property">
+  <div class="image">
+    <img class="property-image" [src]="image1" alt="property"
+      *ngIf="(image$ | async) as image1; else showDefaultPropertyImage">
+  </div>
+
+
+  <div class="property-info">
+    <div class="basic-info">
+      <div class="property-name">{{ property.name }}</div>
+      <div class="property-price">{{ property.price | currency }}</div>
+    </div>
+    <div class="aditional-info">
+      <div class="info">
+        <mat-icon>bed</mat-icon> <span>{{ property.bedRooms }}</span>
+      </div>
+      <div class="info">
+        <mat-icon>shower</mat-icon> <span>{{ property.bathRooms }}</span>
+      </div>
+      <div class="info">
+        <mat-icon>local_taxi</mat-icon> <span>{{ property.parkingLot }}</span>
+      </div>
+      <div class="info">
+        <mat-icon>crop_square</mat-icon> <span>{{ property.area }}</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<ng-template #showDefaultPropertyImage>
+  <img class="property-image" src="/assets/images/default-property.png" alt="property">
+</ng-template>

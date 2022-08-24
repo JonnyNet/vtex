@@ -1,11 +1,18 @@
 import { createReducer, on } from "@ngrx/store";
-import { showSpinner } from './app.actions'
+import { GlobalState } from "src/app/core/models";
+import { setLoadingSpinner, setSnackBarMessage } from './app.actions'
 
-export const spinnerState: boolean = false;
+export const spinnerState: GlobalState = {
+  isLoading: false,
+  snackBarMessage: "",
+};
 
 export const appReducer = createReducer(
   spinnerState,
-  on(showSpinner, (_oldState, newState) => {
-    return newState.value;
+  on(setLoadingSpinner, (state, { isLoading }) => {
+    return { ...state, isLoading }
   }),
+  on(setSnackBarMessage, (state, { message }) => {
+    return { ...state, snackBarMessage: message }
+  })
 );

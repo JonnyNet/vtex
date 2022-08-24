@@ -22,7 +22,7 @@ namespace VtexChallenge.Repositories.Configurations
 
 			builder.Property(x => x.CodeInternal)
 				.HasMaxLength(6)
-				.HasDefaultValue($"NEXT VALUE FOR {VtexChallengeContext._PROPERTY_SEQUENCE}");
+				.HasDefaultValueSql($"NEXT VALUE FOR {VtexChallengeContextFactory._PROPERTY_SEQUENCE}");
 
 			builder.Property(x => x.Year)
 				.IsRequired()
@@ -31,6 +31,31 @@ namespace VtexChallenge.Repositories.Configurations
 			builder.Property(x => x.Enabled)
 				.IsRequired()
 				.HasDefaultValue(true);
+
+			builder.Property(x => x.BedRooms)
+				.IsRequired()
+				.HasDefaultValue(0);
+
+			builder.Property(x => x.BathRooms)
+				.IsRequired()
+				.HasMaxLength(2)
+				.HasDefaultValue(0);
+
+			builder.Property(x => x.ParkingLot)
+				.IsRequired()
+				.HasMaxLength(2)
+				.HasDefaultValue(0);
+
+			builder.Property(x => x.Area)
+				.IsRequired()
+				.HasColumnType("decimal")
+				.HasPrecision(8, 2)
+				.HasDefaultValue(0);
+
+			builder.Property(x => x.Description)
+				.HasMaxLength(500);
+
+
 
 			builder.Property(x => x.CreatedAt)
 				.HasColumnType("datetime")

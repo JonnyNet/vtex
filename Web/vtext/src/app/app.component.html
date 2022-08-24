@@ -3,4 +3,5 @@
   <div class="page">
       <router-outlet></router-outlet>
   </div>
+  <app-loading-spinner *ngIf="loading$ | async"></app-loading-spinner>
 </div>

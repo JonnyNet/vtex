@@ -27,6 +27,14 @@ namespace VtexChallenge.Repositories.Repositories.OwnerRespositories
 		{
 			return _dbContex.Owners
 				.OrderByDescending(x => x.Id)
+				.Select(x => new Owner
+				{
+					Id = x.Id,
+					Name = x.Name,
+					Address = x.Address,
+					Birthday = x.Birthday,
+					CreatedAt = x.CreatedAt,
+				})
 				.GetPagedAsync(requestFilter.Page, requestFilter.PageSize);
 		}
 	}

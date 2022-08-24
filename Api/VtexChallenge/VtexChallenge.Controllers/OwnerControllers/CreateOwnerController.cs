@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using VtexChallenge.BusinessObjects.DTOs.OwnerDTOs;
 using VtexChallenge.BusinessObjects.Interfaces.Controllers.OwnerControllers;
@@ -13,19 +14,22 @@ namespace VtexChallenge.Controllers.OwnerControllers
 	{
 		private readonly ICreateOwnerInputPort _createOwnerInputPort;
 		private readonly ICreateOwnerPresenter _createOwnerPresenter;
+		private readonly IHostingEnvironment _hostingEnvironment;
 
 		public CreateOwnerController(
 			ICreateOwnerInputPort createOwnerInputPort,
-			ICreateOwnerPresenter createOwnerPresenter)
+			ICreateOwnerPresenter createOwnerPresenter,
+			IHostingEnvironment hostingEnvironment)
 		{
 			_createOwnerInputPort = createOwnerInputPort;
 			_createOwnerPresenter = createOwnerPresenter;
+			_hostingEnvironment = hostingEnvironment;
 		}
 
 		[HttpPost]
 		public async Task<int> Create(CreateOwnerDTO createOwnerDTO)
 		{
-			await _createOwnerInputPort.Handle(createOwnerDTO);
+			await _createOwnerInputPort.Handle(_hostingEnvironment.WebRootPath, createOwnerDTO);
 			return _createOwnerPresenter.Content;
 		}
 	}

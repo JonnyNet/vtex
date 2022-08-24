@@ -20,6 +20,10 @@ namespace VtexChallenge.Repositories.Configurations
 				.IsRequired()
 				.HasMaxLength(10);
 
+			builder.Property(x => x.Enabled)
+				.IsRequired()
+				.HasDefaultValue(true);
+
 			builder.Property(x => x.DateSale)
 				.IsRequired()
 				.HasColumnType("datetime");

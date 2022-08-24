@@ -19,9 +19,9 @@ const dutchRangeLabel = (page: number, pageSize: number, length: number) => {
 export function getDutchPaginatorIntl(): MatPaginatorIntl {
   const paginatorIntl = new MatPaginatorIntl();
 
-  paginatorIntl.itemsPerPageLabel = 'Items por pagina:';
-  paginatorIntl.nextPageLabel = 'Siguiente pagina';
-  paginatorIntl.previousPageLabel = 'Anterior pagina';
+  // paginatorIntl.itemsPerPageLabel = 'Items por pagina:';
+  // paginatorIntl.nextPageLabel = 'Siguiente pagina';
+  // paginatorIntl.previousPageLabel = 'Anterior pagina';
   paginatorIntl.getRangeLabel = dutchRangeLabel;
 
   return paginatorIntl;

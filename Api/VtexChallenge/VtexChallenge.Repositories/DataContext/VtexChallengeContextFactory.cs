@@ -8,6 +8,7 @@ namespace VtexChallenge.Repositories.DataContext
 	{
 		// add-migration InitialCreate -p VtexChallenge.Repositories -c VtexChallengeContextFactory -s VtexChallenge.Repositories
 		// Update-Database -p VtexChallenge.Repositories -s VtexChallenge.Repositories -context VtexChallengeContextFactory
+		public const string _PROPERTY_SEQUENCE = "PropertySequence";
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -21,6 +22,10 @@ namespace VtexChallenge.Repositories.DataContext
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
+			modelBuilder.HasSequence<int>(_PROPERTY_SEQUENCE)
+				.StartsAt(100000)
+				.IncrementsBy(1);
+
 			modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 		}
 	}

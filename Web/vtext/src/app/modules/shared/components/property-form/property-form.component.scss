@@ -1,0 +1,26 @@
+.card-property {
+  .form {
+    display: flex;
+    place-content: stretch center;
+    align-items: stretch;
+    height: 100%;
+    flex-direction: row;
+
+    .basic {
+      width: 40%;
+      margin-right: 16px;
+    }
+
+    .aditional {
+      width: 10%;
+      margin-right: 16px;
+    }
+
+    .description {
+      width: 40%;
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+    }
+  }
+}

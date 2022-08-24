@@ -5,6 +5,7 @@ namespace VtexChallenge.BusinessObjects.Interfaces.Repositories.PropertiImageRes
 {
 	public interface IPropertyImageQuerysRepository
 	{
-		Task<IEnumerable<string>> GetImagesByPropertyId(int propertyId);
+		Task<string> GetFirstImageByPropertyId(int propertyId);
+		Task<IEnumerable<string>> GetAllImageByPropertyId(int propertyId);
 	}
 }

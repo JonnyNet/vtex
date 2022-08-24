@@ -8,7 +8,7 @@ using VtexChallenge.Common.Collections;
 
 namespace VtexChallenge.Controllers.PropertyControllers
 {
-	[Route("api/properties")]
+	[Route("api/property")]
 	[ApiController]
 	public class GetAllPropertyController : IGetAllPropertyController
 	{
@@ -23,14 +23,32 @@ namespace VtexChallenge.Controllers.PropertyControllers
 			_getAllPropertyPresenter = getAllPropertyPresenter;
 		}
 
+
 		[HttpGet]
 		[Route("page/{page}/pagesize/{pageSize}")]
-		public async Task<DataCollection<PropertyDTO>> GetAll(int page, int pageSize)
+		public async Task<DataCollection<PropertyDTO>> GetAll(
+			int page, int pageSize,
+			[FromQuery] string Search,
+			[FromQuery] int? Bedrooms,
+			[FromQuery] int? Bathrooms,
+			[FromQuery] int? ParkingLot,
+			[FromQuery] decimal? AreaFrom,
+			[FromQuery] decimal? AreaTo,
+			[FromQuery] decimal? PriceFrom,
+			[FromQuery] decimal? PriceTo)
 		{
 			await _getAllPropertyInputPort.Handle(new()
 			{
 				Page = page,
-				PageSize = pageSize
+				PageSize = pageSize,
+				Search = Search,
+				Bedrooms = Bedrooms,
+				Bathrooms = Bathrooms,
+				ParkingLot = ParkingLot,
+				AreaFrom = AreaFrom,
+				AreaTo = AreaTo,
+				PriceFrom = PriceFrom,
+				PriceTo = PriceTo
 			});
 			return _getAllPropertyPresenter.Content;
 		}
